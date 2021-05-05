@@ -75,7 +75,7 @@
   #define ADC_KEYPAD
   #define IS_RRW_KEYPAD
   #define REPRAPWORLD_KEYPAD_MOVE_STEP 10.0
-  #define ADC_KEY_NUM 8
+  #define ADC_KEY_NUM 5
   #define IS_ULTIPANEL 1
 
   // This helps to implement ADC_KEYPAD menus

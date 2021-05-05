@@ -237,6 +237,8 @@
  */
 #if HAS_WIRED_LCD
 
+  //#define ZONESTAR_LCD2004
+
   #define BEEPER_PIN                       P1_31
   #define BTN_ENC                          P1_30
 
@@ -278,11 +280,21 @@
       #define KILL_PIN                     -1     // NC
 
     #else                                         // !MKS_12864OLED_SSD1306
+        #if ENABLED(ZONESTAR_LCD)
 
-      #define LCD_PINS_RS                  P0_16
+          #define ADC_KEYPAD_PIN                   P1_30
+          #define LCD_PINS_ENABLE                  P0_16
+          #define LCD_PINS_RS                      P0_17
+          #define LCD_PINS_D4                      P1_00
+          #define LCD_PINS_D5                      P0_15
+          #define LCD_PINS_D6                      P0_18
+          #define LCD_PINS_D7                      P1_31
+        #else
+          #define LCD_PINS_RS                  P0_16
 
-      #define LCD_PINS_ENABLE              P0_18
-      #define LCD_PINS_D4                  P0_15
+          #define LCD_PINS_ENABLE              P0_18
+          #define LCD_PINS_D4                  P0_15
+        #endif
 
       #if ENABLED(FYSETC_MINI_12864)
 
@@ -319,11 +331,17 @@
           #define DOGLCD_A0                P1_00
         #endif
 
+        #if ENABLED(ZONESTAR_LCD)
+
+        #else
+
         #if ENABLED(ULTIPANEL)
           #define LCD_PINS_D5              P0_17
           #define LCD_PINS_D6              P1_00
           #define LCD_PINS_D7              P1_22
         #endif
+
+        #endif // ZONESTAR_LCD
 
       #endif // !FYSETC_MINI_12864
 
